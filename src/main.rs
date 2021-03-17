@@ -33,7 +33,6 @@ pub struct Install {}
 fn do_install() -> std::io::Result<()> {
     let bytes = std::fs::read("Cargo.toml")?;
     let manifest = Manifest::from_slice(&bytes).unwrap();
-    // println!("manifest is: \n {:#?}", manifest);
     let deps = get_deps(manifest);
     println! {"deps is: \n {:#?}", deps};
     download_dependencies(deps);
